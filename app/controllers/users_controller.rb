@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
   
     def login
-      user = User.find_by(username: params[:username])
+      user = User.find_by(email: params[:email])
       if user && user.authenticate(params[:password])
         access_token = encode_token(user_id: user.id)
         refresh_token = AuthenticationService.encode({ user_id: user.id, refresh: true }, 1.week.from_now)
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
             refresh_token: refresh_token
           }, status: :created
       else
-        render json: { error: "Invalid username or password" }, status: :unauthorized
+        render json: { error: "Invalid email or password" }, status: :unauthorized
       end
     end
   

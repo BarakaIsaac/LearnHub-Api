@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+
 
     def index
         courses = Course.all
@@ -12,7 +15,7 @@ class CoursesController < ApplicationController
 
     def update
         course = Course.find(params[:id])
-        courrse.update(course_params)
+        course.update!(course_params)
         render json: course
     end
 
@@ -29,5 +32,15 @@ class CoursesController < ApplicationController
 
     private
 
-    
+    def render_unprocessable_entity(invalid)
+        render json: {error: invalid.record.errors}, status: :unprocessable_entity
+    end
+
+    def course_params
+        params.require(:course).permit(:title, :description, :instructor, :creator_id, :rating)
+    end
+
+    def record_not_found
+        render json: { error: "Course not found" }, status: :not_found
+    end
 end

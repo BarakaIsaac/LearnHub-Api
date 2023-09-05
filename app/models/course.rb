@@ -1,3 +1,3 @@
 class Course < ApplicationRecord
-  has_many :lessons
+    validates :title, :description, :instructor, :creator_id, presence: true
 end

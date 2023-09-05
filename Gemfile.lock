@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: edac6f2219b51951e10b4507667d5dafe487514a
+  branch: main
+  specs:
+    faker (3.2.1)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -112,6 +120,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
+    nokogiri (1.15.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     psych (5.1.0)
@@ -155,6 +165,7 @@ GEM
       psych (>= 4.0.0)
     reline (0.3.8)
       io-console (~> 0.5)
+    sqlite3 (1.6.4-x86_64-darwin)
     sqlite3 (1.6.4-x86_64-linux)
     stringio (3.0.8)
     thor (1.2.2)
@@ -167,18 +178,24 @@ GEM
     zeitwerk (2.6.11)
 
 PLATFORMS
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
   active_model_serializers
   debug
+  faker!
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
   sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
+<<<<<<< HEAD
    ruby 2.7.8p225
+=======
+   ruby 2.7.4p191
+>>>>>>> 2f1eddc7713fdd3594f9571c86a3548552379834
 
 BUNDLED WITH
    2.4.17

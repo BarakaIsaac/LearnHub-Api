@@ -2,13 +2,13 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Kepher default
-ruby "2.7.6"
+# ruby "2.7.6"
 
 # phillip
 # ruby "3.0.0"
 
 # Maryanne
-# ruby "2.7.4"
+ruby "2.7.4"
 
 # Isaac
 # ruby "2.7.8"

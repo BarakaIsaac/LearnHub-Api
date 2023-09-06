@@ -1,6 +1,4 @@
 class CoursesController < ApplicationController
-<<<<<<< HEAD
-=======
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
@@ -45,5 +43,4 @@ class CoursesController < ApplicationController
     def record_not_found
         render json: { error: "Course not found" }, status: :not_found
     end
->>>>>>> 2f1eddc7713fdd3594f9571c86a3548552379834
 end

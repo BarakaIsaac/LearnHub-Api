@@ -32,6 +32,7 @@ gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'jwt'
 gem 'rack-cors'
+gem 'faker'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

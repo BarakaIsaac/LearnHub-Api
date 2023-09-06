@@ -3,7 +3,7 @@ class Enrollment < ApplicationRecord
   belongs_to :course
 
   validates :student_role
-
+  ##
   private
 
   def student_role

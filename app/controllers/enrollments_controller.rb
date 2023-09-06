@@ -1,6 +1,6 @@
 class EnrollmentsController < ApplicationController
   before_action :authenticate_user!
-
+  ##
   def create
     course = Course.find(params[:course_id])
     enrollment = Enrollment.new(course: course, student: current_user)

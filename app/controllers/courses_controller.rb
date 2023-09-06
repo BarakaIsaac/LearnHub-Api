@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
+    before_action :authorized, except: [:index, :show]
+    before_action :authorize_admin_or_teacher, only: [:create, :update, :destroy]
 
 
     def index

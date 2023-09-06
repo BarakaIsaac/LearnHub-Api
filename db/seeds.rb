@@ -22,43 +22,42 @@
 #     )
 # end
 
-data = [
-    {
-      title: "Introduction to Programming",
-      description: "This course provides a beginner-friendly introduction to programming concepts.",
-      instructor: "John Doe",
-      creator_id: rand(1..4),
-      rating: rand(1..5)
-    },
-    {
-      title: "Web Development Fundamentals",
-      description: "Learn the basics of web development and create your first website.",
-      instructor: "Jane Smith",
-      creator_id: rand(1..4),
-      rating: rand(1..5)
-    },
-    {
-      title: "Data Science Essentials",
-      description: "Explore the world of data science and machine learning.",
-      instructor: "David Johnson",
-      creator_id: rand(1..4),
-      rating: rand(1..5)
-    },
-    {
-      title: "Artificial Intelligence and Robotics",
-      description: "Discover the exciting field of AI and robotics engineering.",
-      instructor: "Emily Brown",
-      creator_id: rand(1..4),
-      rating: rand(1..5)
-    },
-    {
-      title: "Digital Marketing Mastery",
-      description: "Master digital marketing strategies to grow your online presence.",
-      instructor: "Michael Wilson",
-      creator_id: rand(1..4),
-      rating: rand(1..5)
-    }
-  ]
-  
-  puts data
-  
+courses = [
+  {
+    title: "Introduction to Programming",
+    description: "This course provides a beginner-friendly introduction to programming concepts.",
+    instructor: "John Doe",
+    creator_id: rand(1..4),
+    rating: rand(1..5)
+  },
+  {
+    title: "Web Development Fundamentals",
+    description: "Learn the basics of web development and create your first website.",
+    instructor: "Jane Smith",
+    creator_id: rand(1..4),
+    rating: rand(1..5)
+  },
+  {
+    title: "Data Science Essentials",
+    description: "Explore the world of data science and machine learning.",
+    instructor: "David Johnson",
+    creator_id: rand(1..4),
+    rating: rand(1..5)
+  },
+  {
+    title: "Artificial Intelligence and Robotics",
+    description: "Discover the exciting field of AI and robotics engineering.",
+    instructor: "Emily Brown",
+    creator_id: rand(1..4),
+    rating: rand(1..5)
+  },
+  {
+    title: "Digital Marketing Mastery",
+    description: "Master digital marketing strategies to grow your online presence.",
+    instructor: "Michael Wilson",
+    creator_id: rand(1..4),
+    rating: rand(1..5)
+  }
+]
+
+Course.create(courses)

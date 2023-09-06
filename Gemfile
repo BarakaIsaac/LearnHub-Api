@@ -32,7 +32,7 @@ gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'jwt'
 gem 'rack-cors'
-gem 'faker'
+# gem 'faker'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :development do
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+# gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end

@@ -1,38 +1,52 @@
 class LessonsController < ApplicationController
-
-  def create
-    lesson = Lesson.new(lesson_params)
-
-    if lesson.save
-      render json: lesson, status: :created
-    else
-      render json: { errors: lesson.errors.full_messages.join(', ') }, status: :unprocessable_entity
-    end
-  end
+  before_action :set_course
+  before_action :set_lesson, only: [:show, :update, :destroy]
+  before_action :authorized, except: [:index, :show]
+  before_action :authorize_admin_or_teacher, only: [:create, :update, :destroy]
 
   def index
-    lessons = Lesson.all
-    render json: lessons, status: :ok
+      lessons = if user_enrolled?
+                  @course.lessons
+                else
+                  @course.lessons.limit(2) # Show only two lessons for unenrolled users
+                end
+  
+      render json: {course: @course, lessons: lessons}
   end
 
-  def show
-    lesson = Lesson.find(params[:id])
-    render json: lesson, status: :ok
-  end
-
-  def update
-    lesson = Lesson.find(params[:id])
-
-    if lesson.update!(lesson_params)
+  def show 
+      lesson = Lesson.find(params[:id])
       render json: lesson, status: :ok
-    else
-      render json: { errors: lesson.errors.full_messages.join(', ') }, status: :unprocessable_entity
-    end
+  end
+
+  def create
+      lesson = @course.lessons.new(lesson_params)
+      if lesson.save
+        render json: lesson, status: :created
+      else
+        render json: { error: lesson.errors.full_messages.join(', ') }, status: :unprocessable_entity
+      end
   end
 
   def destroy
-    lesson = Lesson.find(params[:id])
-    lesson.destroy
-    head :no_content
+      @lesson.destroy
+      render json: { message: 'Lesson deleted successfully' }, status: :ok
+    end
+  
+  private
+  
+  def user_enrolled?
+      @course.users.include?(current_user)
+  end
+
+  def set_course
+      @course = Course.find(params[:course_id])
+  end
+  
+  def lesson_params
+      params.require(:lesson).permit(:title, :content, :video_link)
+  end
+  def set_lesson
+      @lesson = @course.lessons.find(params[:id])
   end
 end

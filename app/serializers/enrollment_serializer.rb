@@ -1,4 +1,4 @@
 class EnrollmentSerializer < ActiveModel::Serializer
-  attributes :id, :student_id, :course_id, :created_at
+  attributes :id, :user_id, :course_id
   ##
 end

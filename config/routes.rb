@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/courses/:course_id/isEnrolled', to: 'courses#is_enrolled'
 
 
+
   resources :courses do
     resources :lessons
     member do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       delete 'unenroll'
     end
   end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

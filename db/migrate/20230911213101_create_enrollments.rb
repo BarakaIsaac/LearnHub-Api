@@ -1,8 +1,8 @@
 class CreateEnrollments < ActiveRecord::Migration[7.0]
   def change
     create_table :enrollments do |t|
-      t.integer :student_id
-      t.integer :course_id
+      t.references :course, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

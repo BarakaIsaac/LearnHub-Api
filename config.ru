@@ -7,7 +7,7 @@ use Rack::Cors do
       origins '*'
       resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
     end
-  end
+end
 
 run Rails.application
 Rails.application.load_server

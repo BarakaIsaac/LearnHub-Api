@@ -186,7 +186,7 @@ DEPENDENCIES
   bcrypt
   debug
   jwt
-  pg
+  pg (~> 1.5, >= 1.5.3)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.7, >= 7.0.7.2)

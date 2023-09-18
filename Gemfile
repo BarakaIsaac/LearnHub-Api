@@ -20,7 +20,7 @@ gem "rails", "~> 7.0.7", ">= 7.0.7.2"
 
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
-gem "pg", "~> 1.5", ">= 1.5.3"
+gem "pg", "~> 1.5", ">= 1.5.4"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -35,10 +35,10 @@ gem 'jwt'
 gem 'rack-cors'
 # gem 'faker'
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-end
+# group :development, :test do
+#   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+#   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+# end
 
 group :development do
 # gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'

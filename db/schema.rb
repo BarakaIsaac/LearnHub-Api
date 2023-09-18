@@ -10,8 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema[7.0].define(version: 2023_09_11_213813) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -23,8 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_213813) do
   end
 
   create_table "enrollments", force: :cascade do |t|
-    t.integer "course_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_enrollments_on_course_id"
@@ -34,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_213813) do
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "course_id", null: false
+    t.bigint "course_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video_link"
